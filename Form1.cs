@@ -90,14 +90,10 @@ namespace text1
                         Bmp1.SetPixel(i, j, ColorProcessed); //将黑色变量赋给当前像素点
                     }
                 }
-                
-
                 pictureBox1.Refresh();//刷新图片框
                 pictureBox1.Image = Bmp1; //将重新生成的图片赋值给图片框
             }
-           
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image == null)
@@ -161,10 +157,7 @@ namespace text1
                     int a = Binaryzation(bt1.GetPixel(x, y));
                     if (a == 255)
                     {
-                        
-                            pixelnum++;
-                        
-                        
+                      pixelnum++;
                     }
                 }
             }
@@ -172,39 +165,7 @@ namespace text1
             cankao =  Convert.ToDouble(textBox3.Text);
             double pixelm = new double();
             pixelm = cankao / pixelnum;
-            /*
-            Bitmap bt2;
-            bt2 = new Bitmap(pictureBox1.Image);
-            int Binaryzation1(Color color)
-            {
-                int a0 = (int)(0.7 * color.R + 0.2 * color.G + 0.1 * color.B);
-                a0 = a0 > 128 ? 255 : 0;
-                return a0;
-            }
-            int width1 = bt2.Width;
-            int height1 = bt2.Height;
-            double pixelnum1 = 0;
-            for (int x1 = 1; x1 < width1 - 1; x1++)
-            {
-                for (int y1 = 1; y1 < height1 - 1; y1++)
-                {
-                    int a0 = Binaryzation1(bt1.GetPixel(x1, y1));
-                    if (a0 == 0)
-                    {
-                        int a1 = Binaryzation1(bt1.GetPixel(x1, y1));
-
-                        if (a0 == 0)
-                        {
-                            pixelnum1++;
-                        }
-
-                    }
-                }
-            }
-            double jieguo = new double();
-            jieguo = pixelm * pixelnum1;*/
             textBox4.Text = pixelm.ToString();
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -232,18 +193,13 @@ namespace text1
                     int a = Binaryzation(bt2.GetPixel(x1, y1));
                     if (a == 0)
                     {
-                        
-                            pixelnum1++;
-                        
-
+                       pixelnum1++;
                     }
                 }
             }
-
             double jieguo = new double();
             double pixelm = new double();
             pixelm = Convert.ToDouble(textBox4.Text);
-            
             jieguo = pixelm * pixelnum1 ;
             textBox5.Text = jieguo.ToString();
         }
@@ -320,7 +276,7 @@ namespace text1
         {
             if (pictureBox1.Image == null)
             {
-                MessageBox.Show("错误，没有导入图片！");//判断图片框是否有图片，如果无图片，则给出错误信息
+                MessageBox.Show("错误，没有导入图片！");
                 return;
             }
             BinaryDilation();
@@ -330,7 +286,7 @@ namespace text1
         {
             if (pictureBox1.Image == null)
             {
-                MessageBox.Show("错误，没有导入图片！");//判断图片框是否有图片，如果无图片，则给出错误信息
+                MessageBox.Show("错误，没有导入图片！");
                 return;
             }
             BinaryErosion();
